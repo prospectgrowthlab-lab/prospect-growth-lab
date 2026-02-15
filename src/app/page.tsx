@@ -1,28 +1,4 @@
-const BOOK_CALL_URL = "#book-a-call";
-
-function Nav() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span className="text-lg font-bold tracking-tight">
-          Prospect Growth Lab
-        </span>
-        <div className="hidden md:flex items-center gap-8 text-sm text-muted">
-          <a href="#problem" className="hover:text-foreground transition">Why Us</a>
-          <a href="#services" className="hover:text-foreground transition">Services</a>
-          <a href="#how-it-works" className="hover:text-foreground transition">Process</a>
-          <a href="#about" className="hover:text-foreground transition">About</a>
-        </div>
-        <a
-          href={BOOK_CALL_URL}
-          className="bg-accent hover:bg-accent-light text-white text-sm font-medium px-5 py-2 rounded-lg transition"
-        >
-          Book a Call
-        </a>
-      </div>
-    </nav>
-  );
-}
+const BOOK_CALL_URL = "https://calendly.com";
 
 function Hero() {
   return (
@@ -42,6 +18,8 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href={BOOK_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-accent hover:bg-accent-light text-white font-semibold px-8 py-3.5 rounded-lg text-lg transition"
           >
             Book a Free Strategy Call
@@ -60,41 +38,20 @@ function Hero() {
 
 function Problem() {
   const problems = [
-    {
-      icon: "⏳",
-      title: "Your reps spend hours on manual outreach",
-      desc: "Cold messaging, connection requests, follow-ups — it eats into selling time.",
-    },
-    {
-      icon: "📉",
-      title: "Your pipeline is inconsistent",
-      desc: "Some months are great, others are crickets. You need predictable deal flow.",
-    },
-    {
-      icon: "🎯",
-      title: "You know LinkedIn works — but can't scale it",
-      desc: "Doing it properly takes expertise, tooling, and dedicated time your team doesn't have.",
-    },
+    { icon: "⏳", title: "Your reps spend hours on manual outreach", desc: "Cold messaging, connection requests, follow-ups — it eats into selling time." },
+    { icon: "📉", title: "Your pipeline is inconsistent", desc: "Some months are great, others are crickets. You need predictable deal flow." },
+    { icon: "🎯", title: "You know LinkedIn works — but can't scale it", desc: "Doing it properly takes expertise, tooling, and dedicated time your team doesn't have." },
   ];
-
   return (
     <section id="problem" className="py-20 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Sound Familiar?
-          </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
-            Most growing sales teams hit the same wall when trying to scale
-            outbound on LinkedIn.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Sound Familiar?</h2>
+          <p className="text-muted text-lg max-w-xl mx-auto">Most growing sales teams hit the same wall when trying to scale outbound on LinkedIn.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {problems.map((p) => (
-            <div
-              key={p.title}
-              className="bg-surface border border-border rounded-xl p-8"
-            >
+            <div key={p.title} className="bg-surface border border-border rounded-xl p-8">
               <div className="text-3xl mb-4">{p.icon}</div>
               <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
               <p className="text-muted text-sm leading-relaxed">{p.desc}</p>
@@ -102,13 +59,9 @@ function Problem() {
           ))}
         </div>
         <div className="mt-16 bg-surface-light border border-border rounded-xl p-8 md:p-12 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            We Fix This.
-          </h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">We Fix This.</h3>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Prospect Growth Lab takes LinkedIn outbound completely off your
-            plate. We build the system, write the messaging, target the right
-            people, and deliver warm conversations straight to your inbox.
+            Prospect Growth Lab takes LinkedIn outbound completely off your plate. We build the system, write the messaging, target the right people, and deliver warm conversations straight to your inbox.
           </p>
         </div>
       </div>
@@ -118,55 +71,23 @@ function Problem() {
 
 function Services() {
   const services = [
-    {
-      title: "Prospect Targeting",
-      desc: "We build laser-focused prospect lists based on your ICP — industry, company size, role, geography. No spray and pray.",
-      icon: "🎯",
-    },
-    {
-      title: "Messaging & Sequences",
-      desc: "Custom outreach sequences written to start real conversations, not get ignored. Tested and optimized over time.",
-      icon: "💬",
-    },
-    {
-      title: "LinkedIn Automation",
-      desc: "Automated connection requests, follow-ups, and engagement — all running safely in the background, every day.",
-      icon: "⚡",
-    },
-    {
-      title: "Campaign Management",
-      desc: "We monitor, tweak, and optimize your campaigns weekly. You get reports, we handle the work.",
-      icon: "📊",
-    },
-    {
-      title: "Lead Handoff",
-      desc: "When a prospect replies with interest, we hand them directly to your sales team — warm and ready to talk.",
-      icon: "🤝",
-    },
-    {
-      title: "Strategy & Consulting",
-      desc: "Ongoing strategic input on positioning, messaging, and targeting to keep your pipeline growing.",
-      icon: "🧠",
-    },
+    { title: "Prospect Targeting", desc: "We build laser-focused prospect lists based on your ICP — industry, company size, role, geography. No spray and pray.", icon: "🎯" },
+    { title: "Messaging & Sequences", desc: "Custom outreach sequences written to start real conversations, not get ignored. Tested and optimized over time.", icon: "💬" },
+    { title: "LinkedIn Automation", desc: "Automated connection requests, follow-ups, and engagement — all running safely in the background, every day.", icon: "⚡" },
+    { title: "Campaign Management", desc: "We monitor, tweak, and optimize your campaigns weekly. You get reports, we handle the work.", icon: "📊" },
+    { title: "Lead Handoff", desc: "When a prospect replies with interest, we hand them directly to your sales team — warm and ready to talk.", icon: "🤝" },
+    { title: "Strategy & Consulting", desc: "Ongoing strategic input on positioning, messaging, and targeting to keep your pipeline growing.", icon: "🧠" },
   ];
-
   return (
     <section id="services" className="py-20 md:py-28 px-6 bg-surface">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What You Get
-          </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
-            A full-service LinkedIn outbound engine, managed end-to-end.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What You Get</h2>
+          <p className="text-muted text-lg max-w-xl mx-auto">A full-service LinkedIn outbound engine, managed end-to-end.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
-            <div
-              key={s.title}
-              className="bg-background border border-border rounded-xl p-6 hover:border-accent/50 transition"
-            >
+            <div key={s.title} className="bg-background border border-border rounded-xl p-6 hover:border-accent/50 transition">
               <div className="text-2xl mb-3">{s.icon}</div>
               <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
               <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
@@ -180,48 +101,22 @@ function Services() {
 
 function HowItWorks() {
   const steps = [
-    {
-      num: "01",
-      title: "Strategy Call",
-      desc: "We learn your business, ICP, and goals. We map out the ideal outbound strategy for your market.",
-    },
-    {
-      num: "02",
-      title: "Build & Launch",
-      desc: "We set up your targeting, write your sequences, and launch your campaigns — typically within a week.",
-    },
-    {
-      num: "03",
-      title: "Optimize & Scale",
-      desc: "We monitor performance, A/B test messaging, refine targeting, and scale what works.",
-    },
-    {
-      num: "04",
-      title: "You Close Deals",
-      desc: "Warm leads land in your inbox. Your sales team takes it from there.",
-    },
+    { num: "01", title: "Strategy Call", desc: "We learn your business, ICP, and goals. We map out the ideal outbound strategy for your market." },
+    { num: "02", title: "Build & Launch", desc: "We set up your targeting, write your sequences, and launch your campaigns — typically within a week." },
+    { num: "03", title: "Optimize & Scale", desc: "We monitor performance, A/B test messaging, refine targeting, and scale what works." },
+    { num: "04", title: "You Close Deals", desc: "Warm leads land in your inbox. Your sales team takes it from there." },
   ];
-
   return (
     <section id="how-it-works" className="py-20 md:py-28 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How It Works
-          </h2>
-          <p className="text-muted text-lg">
-            From zero to booked meetings in four simple steps.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+          <p className="text-muted text-lg">From zero to booked meetings in four simple steps.</p>
         </div>
         <div className="space-y-8">
           {steps.map((step) => (
-            <div
-              key={step.num}
-              className="flex gap-6 items-start bg-surface border border-border rounded-xl p-6 md:p-8"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-accent shrink-0">
-                {step.num}
-              </div>
+            <div key={step.num} className="flex gap-6 items-start bg-surface border border-border rounded-xl p-6 md:p-8">
+              <div className="text-3xl md:text-4xl font-bold text-accent shrink-0">{step.num}</div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-muted leading-relaxed">{step.desc}</p>
@@ -240,29 +135,19 @@ function About() {
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Built by Someone Who Gets Growth
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Built by Someone Who Gets Growth</h2>
             <p className="text-muted leading-relaxed mb-4">
-              I&apos;m Louis Wand — I&apos;ve spent 6 years in digital marketing helping
-              businesses generate leads and grow revenue. I&apos;ve seen what works
-              and what doesn&apos;t.
+              I&apos;m Louis Wand — I&apos;ve spent 6 years in digital marketing helping businesses generate leads and grow revenue. I&apos;ve seen what works and what doesn&apos;t.
             </p>
             <p className="text-muted leading-relaxed mb-4">
-              I started Prospect Growth Lab because I saw a massive gap: companies
-              know LinkedIn is where their buyers live, but they don&apos;t have the
-              time, tools, or expertise to do outbound properly.
+              I started Prospect Growth Lab because I saw a massive gap: companies know LinkedIn is where their buyers live, but they don&apos;t have the time, tools, or expertise to do outbound properly.
             </p>
             <p className="text-muted leading-relaxed">
-              So I built a service that does it all — targeting, messaging,
-              automation, and optimization — so sales teams can focus on what they
-              do best: closing deals.
+              So I built a service that does it all — targeting, messaging, automation, and optimization — so sales teams can focus on what they do best: closing deals.
             </p>
           </div>
           <div className="bg-background border border-border rounded-xl p-8 text-center">
-            <div className="w-24 h-24 bg-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">
-              LW
-            </div>
+            <div className="w-24 h-24 bg-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">LW</div>
             <h3 className="text-xl font-bold">Louis Wand</h3>
             <p className="text-muted text-sm mt-1">Founder, Prospect Growth Lab</p>
             <p className="text-accent text-sm mt-1">6+ Years in Digital Marketing</p>
@@ -277,56 +162,33 @@ function CTA() {
   return (
     <section id="book-a-call" className="py-20 md:py-28 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          Ready to Fill Your Pipeline?
-        </h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Fill Your Pipeline?</h2>
         <p className="text-muted text-lg mb-10 max-w-xl mx-auto">
-          Book a free 30-minute strategy call. We&apos;ll map out how LinkedIn
-          outbound can work for your business — no pressure, no pitch.
+          Book a free 30-minute strategy call. We&apos;ll map out how LinkedIn outbound can work for your business — no pressure, no pitch.
         </p>
         <a
-          href="https://calendly.com" 
+          href={BOOK_CALL_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-accent hover:bg-accent-light text-white font-semibold px-10 py-4 rounded-lg text-lg transition"
         >
           Book Your Free Call →
         </a>
-        <p className="text-muted text-sm mt-6">
-          No commitment required. Let&apos;s just talk.
-        </p>
+        <p className="text-muted text-sm mt-6">No commitment required. Let&apos;s just talk.</p>
       </div>
     </section>
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-border py-8 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
-        <span>© {new Date().getFullYear()} Prospect Growth Lab. All rights reserved.</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-foreground transition">Privacy</a>
-          <a href="#" className="hover:text-foreground transition">Terms</a>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <Problem />
-        <Services />
-        <HowItWorks />
-        <About />
-        <CTA />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Hero />
+      <Problem />
+      <Services />
+      <HowItWorks />
+      <About />
+      <CTA />
+    </main>
   );
 }
