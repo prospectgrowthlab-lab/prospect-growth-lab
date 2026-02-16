@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ThemeToggle } from "./components/ThemeToggle";
 
 const BOOK_CALL_URL = "https://calendly.com";
 
@@ -19,7 +20,8 @@ export function Nav() {
           <Link href="/pricing" className="hover:text-foreground transition">Pricing</Link>
           <Link href="/blog" className="hover:text-foreground transition">Blog</Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           <a
             href={BOOK_CALL_URL}
             target="_blank"

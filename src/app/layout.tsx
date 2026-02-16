@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav, Footer } from "./components";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import { ThemeProvider } from "./components/ThemeProvider";
 import { generateSEO, generateOrganizationSchema, generateServiceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = generateSEO({
@@ -24,11 +25,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased">
         <GoogleAnalytics />
-        <Nav />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Nav />
+          {children}
+          <Footer />
+        </ThemeProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
