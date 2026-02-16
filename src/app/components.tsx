@@ -21,7 +21,9 @@ export function Nav() {
           <Link href="/blog" className="hover:text-foreground transition">Blog</Link>
         </div>
         <div className="flex items-center gap-3">
-          <ThemeToggle />
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
           <a
             href={BOOK_CALL_URL}
             target="_blank"
@@ -89,7 +91,10 @@ export function Footer() {
         </div>
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
           <span>© {new Date().getFullYear()} Prospect Growth Lab. All rights reserved.</span>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
+            <div className="md:hidden">
+              <ThemeToggle />
+            </div>
             <a href="#" className="hover:text-foreground transition">Privacy</a>
             <a href="#" className="hover:text-foreground transition">Terms</a>
           </div>
