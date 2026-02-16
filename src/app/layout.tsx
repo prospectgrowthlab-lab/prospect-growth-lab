@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Nav, Footer } from "./components";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import { generateSEO, generateOrganizationSchema, generateServiceSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: "Prospect Growth Lab | LinkedIn Outbound Automation",
   description:
     "We help mid-market companies scale their outbound pipeline with done-for-you LinkedIn automation. Book a call today.",
-  openGraph: {
-    title: "Prospect Growth Lab | LinkedIn Outbound Automation",
-    description:
-      "We help mid-market companies scale their outbound pipeline with done-for-you LinkedIn automation.",
-    url: "https://prospect-growth-lab.vercel.app",
-    siteName: "Prospect Growth Lab",
-    type: "website",
-  },
-};
+  keywords: [
+    "LinkedIn lead generation",
+    "done-for-you LinkedIn outbound",
+    "B2B sales automation",
+    "LinkedIn prospecting service",
+    "sales development",
+  ],
+});
 
 export default function RootLayout({
   children,
@@ -24,21 +25,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <GoogleAnalytics />
         <Nav />
         {children}
         <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Prospect Growth Lab",
-              url: "https://prospect-growth-lab.vercel.app",
-              founder: { "@type": "Person", name: "Louis Wand" },
-              description:
-                "Done-for-you LinkedIn outbound automation for mid-market companies.",
-            }),
+            __html: JSON.stringify(generateOrganizationSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateServiceSchema()),
           }}
         />
       </body>

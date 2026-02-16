@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { generateSEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: "Use Cases | Prospect Growth Lab — LinkedIn Outbound by Industry",
   description:
     "See how SaaS companies, recruitment agencies, marketing agencies, professional services firms, and real estate businesses use LinkedIn outbound to grow their pipeline.",
-  openGraph: {
-    title: "Use Cases | Prospect Growth Lab",
-    description: "LinkedIn outbound strategies by industry — SaaS, recruiting, agencies, and more.",
-    url: "https://prospect-growth-lab.vercel.app/use-cases",
-  },
-};
+  path: "/use-cases",
+  keywords: [
+    "LinkedIn automation for SaaS",
+    "LinkedIn for recruitment",
+    "agency lead generation",
+    "B2B prospecting by industry",
+    "LinkedIn outbound use cases",
+  ],
+});
 
 const useCases = [
   {

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { posts } from "./blog/data";
 
-const BASE = "https://prospect-growth-lab.vercel.app";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://prospect-growth-lab.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogEntries = posts.map((p) => ({

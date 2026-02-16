@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { generateSEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: "Pricing | Prospect Growth Lab — LinkedIn Outbound Plans",
   description:
     "Simple, transparent pricing for done-for-you LinkedIn outbound. Plans from $597/mo. 14-day money-back guarantee. No long-term contracts.",
-  openGraph: {
-    title: "Pricing | Prospect Growth Lab",
-    description: "Done-for-you LinkedIn outbound from $597/mo. 14-day money-back guarantee.",
-    url: "https://prospect-growth-lab.vercel.app/pricing",
-  },
-};
+  path: "/pricing",
+  keywords: [
+    "LinkedIn automation pricing",
+    "outbound sales pricing",
+    "LinkedIn prospecting cost",
+    "AimFox pricing",
+    "B2B lead generation pricing",
+  ],
+});
 
 const tiers = [
   {

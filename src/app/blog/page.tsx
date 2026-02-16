@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "./data";
+import { generateSEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: "Blog | Prospect Growth Lab — LinkedIn Outbound Tips & Strategies",
   description:
     "Expert insights on LinkedIn outbound, cold email, sales automation, and B2B pipeline growth. Read our latest articles and guides.",
-  openGraph: {
-    title: "Blog | Prospect Growth Lab",
-    description: "Expert insights on LinkedIn outbound, cold email, and B2B pipeline growth.",
-    url: "https://prospect-growth-lab.vercel.app/blog",
-  },
-};
+  path: "/blog",
+  keywords: [
+    "LinkedIn outbound tips",
+    "sales automation strategies",
+    "B2B lead generation blog",
+    "LinkedIn prospecting guide",
+    "cold outreach tips",
+  ],
+});
 
 export default function BlogPage() {
   return (
